@@ -10,6 +10,8 @@
         <li 
             v-for="todo in filteredTodoItems" 
             v-bind:key="todo.id"
+            class="todo-item"
+            v-bind:class="{'done': todo.done}"
             v-on:click="todo.done = !todo.done">
             <span v-if="todo.done">✅</span>
             {{ todo.text }}
@@ -49,3 +51,9 @@ export default {
     }
 }
 </script>
+<style>
+.todo-item.done {
+    background-color: #3fb983;
+    color: #ffffff;
+}
+</style>
